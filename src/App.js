@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Card from "./Components/Card"
+import Navbar from "./Components/Navbar"
+import Search from "./Components/Search"
+import { Container, Flex } from "./Components/Styles/Card.styles"
+import GlobalStyles from "./Components/Styles/Global"
+import { data } from "./Data"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <GlobalStyles />
+      <Navbar />
+      <Search />
+      <Container>
+        <Flex>
+          {data.map((el, index) => {
+            return <Card item={el} key={index} />
+          })}
+        </Flex>
+      </Container>
+    </>
+  )
 }
 
-export default App;
+export default App
